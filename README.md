@@ -51,4 +51,17 @@ Si bien este modelo cuenta con múltiples ventajas, tambien tiene desventajas po
 
 ![alt text](image.png)
 
+### Métricas de evaluación
+
+-Accuracy (Exactitud): Es la proporción de predicciones correctas sobre el total de predicciones, en muchos casos son útil como una métrica general, aunque puede ser engañosa si hay clases desbalanceadas.
+
+-Precision (Precisión):  Mide qué proporción de las predicciones positivas fueron realmente correctas, es útil cuando queremos evitar falsos positivos, por ejemplo, predecir que un vino es de calidad alta cuando no lo es.
+
+-Recall (Sensibilidad):  Mide qué proporción de los casos positivos fueron correctamente identificados, esto es clave cuando queremos evitar pasar por alto vinos realmente buenos.
+
+-F1-Score: Es la media armónica entre la precisión y el recall, equilibrando ambas métricas, permite balancear ambos aspectos anteriores y es especialmente útil en contextos industriales donde tanto los falsos positivos como los falsos negativos pueden tener implicancias económicas.
+
+-Matriz de confusión: permite visualizar cómo el modelo se equivoca, mostrando cuántos vinos de cada clase fueron correctamente o incorrectamente clasificados, el cual se presentará una tabla que muestra el número de verdaderos positivos (TP), verdaderos negativos (TN), falsos positivos (FP) y falsos negativos (FN).  
+
+![alt text](image-1.png)
 
