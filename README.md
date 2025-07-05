@@ -7,8 +7,10 @@ El objetivo es predecir la calidad del vino en una escala del 0 al 10, utilizand
 ## Explicación del Dataset
 El dataset tiene 12 columnas, 11 características y 1 que es la categórica.
 
-Teniendo dos archivos, winequality-red y winequality-white, cada una representa una muestra de vino con sus propiedades y calidad asignada por catadores.
+Teniendo tipos de vino rojo o blanco, cada una representa sus distintas propiedades y calidad asignadas por catadores.
 ### Features del Dataset
+
+**Type**: Si es vino Blanco o Rojo
 
 **Fixed acidity**: Concentración de ácidos no volátiles, que contribuyen a la acidez total del vino.
 
