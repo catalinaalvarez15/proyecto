@@ -5,20 +5,20 @@ El objetivo es predecir la calidad del vino en una escala del 0 al 10, utilizand
 
 # Plan de Acción
 ## Explicación del Dataset
-El dataset tiene 12 columnas, 11 características y 1 que es la variable objetivo.
+El dataset tiene 12 columnas, 11 características y 1 que es la categórica.
 
 Teniendo dos archivos, winequality-red y winequality-white, cada una representa una muestra de vino con sus propiedades y calidad asignada por catadores.
 ### Features del Dataset
 
-**Fixed acidity**: Concentración de ácidos no volátiles, principalmente ácido tartárico y málico, que contribuyen a la acidez total del vino.
+**Fixed acidity**: Concentración de ácidos no volátiles, que contribuyen a la acidez total del vino.
 
 **Volatile acidity**: Medida de ácidos volátiles, principalmente ácido acético, que en exceso puede generar sabores desagradables.
 
 **Citric acid**: Cantidad de ácido cítrico, que puede aportar frescura y sabor al vino.
 
-**Residual sugar**: Cantidad de azúcar residual después de la fermentación (g/l), relacionada con el dulzor del vino.
+**Residual sugar**: Cantidad de azúcar residual después de la fermentación, relacionada con el dulzor del vino.
 
-**Chlorides**: Concentración de cloruros (sales) en el vino.
+**Chlorides**: Concentración de sales en el vino.
 
 **Free sulfur dioxide**: Cantidad de dióxido de azufre libre, utilizado para prevenir el crecimiento de microorganismos.
 
@@ -28,28 +28,26 @@ Teniendo dos archivos, winequality-red y winequality-white, cada una representa 
 
 **PH**: Medida de acidez o alcalinidad del vino.
 
-**Sulphates**: Cantidad de sulfatos, que contribuyen a la estabilidad microbiana y el sabor del vino.
+**Sulphates**: Cantidad de sulfatos, contribuyen al sabor del vino.
 
 **Alcohol**: Porcentaje de alcohol por volumen presente en el vino.
 
 **Quality**: Puntuación de calidad del vino, asignada por catadores en una escala de 0 a 10 (variable objetivo).
 
-
 ---
 
-## MODELO RANDOM FOREST 
+# Justificación del Modelo
+## Modelo escogido: RANDOM FOREST 
 
-### Justificación del Modelo
+Como dentro del proyecto se hará para predecir sobre la calidad del vino a partir de sus propiedades físico-químicas, entonces la elección de hacerlo mediante el Random Forest ya que como el dataset presenta multiples variables numéricas, que es ventaja importante de Random Forest, es que puede determinar la importancia de cada variable y descubrir relaciones complejas entre ellas o que permite identificar cuáles son los factores más influyentes en la calidad del vino, generando así interpretaciones útiles para la industria, facilitando la toma de decisiones y la categorización de que si el vino es de buena calidad o no, para corroborar de que está correcta la clasificación del vino, es necesario verificar con el Accuracy, de esta manera podremos ver si las predicciones son correctas. Y para corroborar de que los datos de las features son correctas lo verificaremos con la observación de la disminución en la impureza de Gini/Entropy y promediando esta disminución por cada Feature de esta forma se puede ver qué tan importante es esa feature para dividir los datos en diferentes ramas.
 
-Como dentro del proyecto se hará para predecir sobre la calidad del vino a partir de sus propiedades físico-químicas, entonces la elección de hacerlo mediante el Random Forest ya que como el dataset presenta multiples variables numéricas, una de las ventaja importante de Random Forest, es que puede determinar la importancia de cada variable y descubrir relaciones complejas entre ellas o que permite identificar cuáles son los factores más influyentes en la calidad del vino, generando así interpretaciones útiles para la industria, lo realiza mediante la observación la disminución en la impureza de Gini/Entropy y promediando esta disminución por cada Feature así se puede ver qué tan importante
-es esa feature para dividir los datos en diferentes ramas.
 
 
 Por lo cual al comparar con otros modelos como la regresión logística o modelos más sensibles a la escala y ruido como KNN, Random Forest ofrece como modelo una solución más estable y precisa así mismo, a diferencia de la regresión logística, Random Forest no requiere asumir relaciones lineales entre variables y calidad, lo que lo hace más adecuado para este problema.
 
 ### Limitaciones del modelo
 
-Si bien este modelo cuenta con múltiples ventajas, tambien tiene desventajas por ejemplo dentro de las limitaciones es que no tiene una alta interpretabilidad como lo podría hacer un arbol de decisión, tambien sabemos que al momento de entrenar este modelo requiere de un poco mas de tiempo y esto demora aún más cuando el dataset es de un tamaño considerable.
+Si bien este modelo cuenta con múltiples ventajas, tambien tiene desventajas por ejemplo dentro de las limitaciones es que no tiene una alta interpretabilidad como lo podría hacer un arbol de decisión, tambien sabemos que al momento de entrenar este modelo requiere de un poco mas de tiempo y esto demora aún más cuando el dataset es de un tamaño considerable, otra limitación será saber si las clases están desbalanceadas ya que puede ser el caso de que hayan mas vinos de calidad media que alta y eso afecte en el modelo.
 
 ![alt text](image.png)
 
