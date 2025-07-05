@@ -61,7 +61,7 @@ Si bien este modelo cuenta con múltiples ventajas, tambien tiene desventajas po
 
 -F1-Score: Es la media armónica entre la precisión y el recall, equilibrando ambas métricas, permite balancear ambos aspectos anteriores y es especialmente útil en contextos industriales donde tanto los falsos positivos como los falsos negativos pueden tener implicancias económicas.
 
--Matriz de confusión: permite visualizar cómo el modelo se equivoca, mostrando cuántos vinos de cada clase fueron correctamente o incorrectamente clasificados, el cual se presentará una tabla que muestra el número de verdaderos positivos (TP), verdaderos negativos (TN), falsos positivos (FP) y falsos negativos (FN).  
+-Matriz de confusión: Permite visualizar cómo el modelo se equivoca, mostrando cuántos vinos de cada clase fueron correctamente o incorrectamente clasificados, el cual se presentará una tabla que muestra el número de verdaderos positivos (TP), verdaderos negativos (TN), falsos positivos (FP) y falsos negativos (FN).  
 
 ![alt text](image-1.png)
 
