@@ -67,7 +67,8 @@ Si bien este modelo cuenta con múltiples ventajas, tambien tiene desventajas po
 
 ## Interpretacion 
 
-Para comenzar realizamos un analicis de la base de datos extrallendo la informacion de las caracteristicas que en su interiro contaba con datos na y a traves de dropna eliinamos esos datos para tener la base de datos en mejor condicio para trabajar.
+Para comenzar, realizamos un análisis de la base de datos extrayendo la información de las características que contenían valores faltantes NA. 
+Luego, utilizamos la función dropna para eliminar esos registros, con el objetivo de dejar la base de datos en mejores condiciones para trabajar de forma más eficiente y precisa.
 
 ![alt text](image-2.png)  ![alt text](image-3.png)
 
@@ -78,19 +79,20 @@ También realizamos un análisis del tipo de datos de cada columna para identifi
 Luego, para trabajar de mejor manera con los datos del tipo de vino rojo y blanco, transformamos esta variable en una variable dummy.
 
 "white" se convierte en 0
+
 "red" se convierte en 1
 
 Para poder ejecutar todo mejor fue necesario separar target de los demas features, pero todo esto de la base de datos limpia, despues se creo X que contiene todas las columnas excepto la columna 'quality', luego se crea y el cual extrae únicamente la columna 'quality', que será el objetivo o etiqueta del modelo de regresión. 
 
 Fue necesario estandarizar los datos para que  este proceso prepara los datos numéricos para que los algoritmos trabaje de forma más eficiente y justa, evitando que variables con rangos más grandes dominen a otras.
 
-## Entrenaiento del modelo
+## Entrenamiento del modelo
 
-Fue necesraio dividir los datos comodato de entrenamiento y de testeo lo cual es un paso esencial en el desarrollo de modelos de machine learning, por lo cual se tomo que el 80% de los datos se utilizara para entrenar el modelo y el 20% para testear como este funciona.
+Fue necesraio dividir los datos como dato de entrenamiento y de testeo lo cual es un paso esencial en el desarrollo de modelos de machine learning, por lo cual se tomo que el 80% de los datos se utilizara para entrenar el modelo y el 20% para testear como este funciona.
 
 Como estamos analizando la calidad de los vinos, realizamos un gráfico para observar si la variable 'quality' está balanceada, es decir, si existen cantidades similares para cada nivel de calidad. Este análisis también nos permite identificar si hay un desbalance en la distribución, con mayor cantidad de vinos en ciertos niveles de calidad, así como determinar cuál es la calidad de vino con mayor presencia en el conjunto de datos.
 
-## analisis de calidad del vino
+## Analisis de calidad del vino
 
 Con el grafico es posibleidentificar que cada calidad se encuentra desbalanceada por lo cual entre las calidades 5 y 6 se encuentrar con un mayor cantidad que las calidades externas a estos valores.
 
@@ -106,6 +108,35 @@ Fue neceario aplicar un modelo de Random Forest Regressor para predecir la calid
 
 Se realiza una predicción utilizando los datos de prueba X_test, cuyos resultados se almacenan en y_pred, esto permite llevar a cabo un análisis de las métricas de evaluación del modelo: MAE, MSE, RMSE y R², las cuales permiten medir el nivel de error y el grado de ajuste entre los valores reales y los predichos.
 
+MAE: 0.435, en una escala de 1 a 10, significa que, en promedio el modelo se equivoca en 0.43 puntos de calidad al predecir.
 
+MSE: 0.376, el error cuadrático medio es bajo, lo que indica que no hay errores grandes frecuentes.
+
+RMSE: 0.613, en promedio, las predicciones están a 0.61 puntos de distancia del valor real en la escala 1-10. Esto es consistente con el MAE, indicando estabilidad en el error del modelo.
+
+R²: 0.507 ,el modelo explica el 50.7% de la variabilidad de la calidad del vino a partir de las variables físico-químicas disponibles. En problemas de predicción de calidad de alimentos o bebidas, este valor es razonable si consideramos la variabilidad natural entre catadores y factores de calidad no medidos en las variables químicas (etiqueta, fecha, etc.).
 
 ![alt text](image-9.png)
+
+## Gráfica de importancia de variables 
+
+Con esto es posible visualizar la importancia de cada variable en el modelo de Random Forest, lo cual permite entender qué variables influyeron más en la predicción de la calidad del vino.
+
+Este gráfico muestra la importancia de las variables utilizadas por el modelo Random Forest, indicando cuánto aporta cada variable en la toma de decisiones del modelo. Se observa que el alcohol es la variable más influyente, con una importancia cercana al 25 %, confirmando que el contenido de alcohol es un factor clave para determinar la calidad del vino. Le siguen la acidez volátil, que afecta el sabor si es alta, y variables como free sulfur dioxide y sulphates, relacionadas con la estabilidad y conservación del vino.  Por otro lado, variables como type (si es vino rojo o blanco), fixed acidity, citric acid, density y pH tienen un peso bajo en comparación con las demás siendo no tan relevantes en la toma de decisiones.
+
+![alt text](image-10.png)
+
+## Matriz de correlacion 
+
+Calculamos lamatriza de correlacion entre las variable que se encontraban precente en el conjunto de entrenamiento x.
+
+Importante recordar que esta matriz tiene 3 posibles valores +1 correlación positiva perfecta por lo cual cuando una variable sube, la otra también, 0 sin correlación y −1 cuando su correlación es negativa enetonces cuando una sube, la otra baja. 
+
+![alt text](image-11.png)
+
+Pero para poder hacer un mejor analisis fue necesario visualizar en formato tabular.
+
+![alt text](image-12.png)
+
+El análisis de correlación entre las variables del dataset de vinos permite identificar relaciones relevantes y posibles reiterativas en la información. Podemos notar una fuerte relación negativa entre density y alcohol, concordando con que un mayor contenido de alcohol disminuye la densidad del vino. También destaca la correlación moderada entre fixed acidity y density, reflejando cómo la acidez afecta la estructura del vino.
+
